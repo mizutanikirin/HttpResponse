@@ -2,20 +2,15 @@ import http.requests.*;
 
 class HttpConnect{
   
-  //----------------------------------
-  //  init
-  //----------------------------------
-  // final vars
-  private final String setDataUrl = "http://example.com/setData.php";
-  
   // vars
+  private final String setDataUrl = "http://example.com/setData.php";
   private Thread setStandNumThread;
   
   // constructor
   HttpConnect(){
   }
   
-  // SetStandNum
+  // SetData
   public void SetData(int _data){
     setStandNumThread = new Thread(new SetDataThread(setDataUrl, _data));
     setStandNumThread.start();
@@ -23,9 +18,6 @@ class HttpConnect{
   
 }
 
-//----------------------------------
-//  SetStandNumThread
-//----------------------------------
 class SetDataThread implements Runnable {
   
   private String setDataUrl;
